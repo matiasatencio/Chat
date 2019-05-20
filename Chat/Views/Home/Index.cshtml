@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <h3>Messages</h3>
+    <div class="row">
+        <div id="chatBox"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <input type="text" class="form-control" id="txtMessage" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <input type="button" class="btn btn-success" id="btnSend" value="Send" />
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="displayName" />
+
+@section scripts{
+    <script src="~/Scripts/jquery.signalR-2.4.1.js"></script>
+    <script src="/signalr/hubs"></script>
+    <script src="~/Scripts/functions.js"></script>
+}

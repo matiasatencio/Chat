@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Home Page";
+}
+@if (Request.IsAuthenticated)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-8">
+                <h3>Messages</h3>
+                <div id="chatBox"></div>
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+        <div class="row customControl">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-7">
+                <input type="text" class="form-control" id="txtMessage" />
+            </div>
+            <div class="col-lg-1">
+                <input type="button" class="btn btn-success" id="btnSend" value="Send" />
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="displayName" value="@User.Identity.Name" />
+    
+    @section scripts{
+        <script src="~/Scripts/jquery.signalR-2.4.1.js"></script>
+        <script src="/signalr/hubs"></script>
+        <script src="~/Scripts/functions.js"></script>
+    }
+}
+else
+{
+    <div class="container">
+        <div class="row customControl">
+            <div class="col-lg-12">
+            </div>
+            You must be authenticated to see this page.
+        </div>
+    </div>
+}
